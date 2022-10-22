@@ -1,8 +1,8 @@
 spec:
-  name: sample-html
+  name: website-sounds-radiant
   static_sites:
   - environment_slug: html
     git:
       branch: main
-      repo_clone_url: https://github.com/digitalocean/sample-html.git
-    name: sample-html
+      repo_clone_url: https://github.com/0x213F/website-sounds-radiant.git
+    name: website-sounds-radiant
