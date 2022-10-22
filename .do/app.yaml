@@ -1,8 +1,8 @@
-name: sample-html
+name: website-sounds-radiant
 static_sites:
 - environment_slug: html
   github:
     branch: main
     deploy_on_push: true
-    repo: digitalocean/sample-html
-  name: sample-html
+    repo: 0x213F/website-sounds-radiant
+  name: website-sounds-radiant
