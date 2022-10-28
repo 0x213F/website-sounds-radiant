@@ -7,6 +7,15 @@
     <title>Sounds Radiant</title>
 </head>
 
+<style>
+
+#subscribe-thank-you {
+  font-weight: bold;
+  color: #22FF22;
+}
+
+</style>
+
 <body>
     <h1>Sounds 🔊 Radiant 💡</h1>
     <h3>
@@ -15,11 +24,26 @@
       </a>
     </h3>
 
-    <form action="https://serverless-sounds-radiant-b7hlf.ondigitalocean.app/forms/subscribe">
+    <form id="subscribe-form" action="https://serverless-sounds-radiant-b7hlf.ondigitalocean.app/forms/subscribe">
       <label for="email">Subscribe</label><br>
       <input type="email" id="email" name="email"><br>
       <button type="submit">Submit</button>
     </form>
+    <p id="subscribe-thank-you" style="display: none;">Thank you 💚</p>
 </body>
+
+<script>
+
+const subscribeForm = document.querySelector('#subscribe-form');
+const thankYouMessage = document.querySelector('#subscribe-thank-you');
+
+subscribeForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  subscribeForm.submit();
+  subscribeForm.style.display = 'none';
+  thankYouMessage.style.display = 'block';
+});
+
+</script>
 
 </html>
