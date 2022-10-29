@@ -5,38 +5,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sounds Radiant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@300;900&display=swap" rel="stylesheet">
 </head>
 
 <style>
+
+body {
+  background-size: fill;
+  margin: 0;
+}
+
+p {
+  font-family: 'Tourney';
+  color: white;
+  font-weight: 900;
+  font-size: 18px;
+  text-align: center;
+}
+
+button {
+  width: 240px;
+  height: 36px;
+  margin-bottom: 8px;
+}
+
+#subscribe-form {
+  margin-top: 64px;
+}
 
 #subscribe-thank-you {
   font-weight: bold;
   color: #22FF22;
 }
 
+.main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  font-family: 'Tourney';
+  background-color: white;
+  color: black;
+  font-size: min(8vw, 64px); /* Responsive font size */
+  font-weight: 300;
+  padding: 18px 24px;
+  margin: 0 16px;
+  max-width: 800px;
+  text-align: center; /* Center text */
+  mix-blend-mode: screen; /* This makes the cutout text possible */
+  border-radius: 14px;
+}
+
+.insta-qr {
+  filter: invert(100%);
+  margin: 48px 0;
+  width: 168px;
+  height: 168px;
+}
+
+.modal {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(40, 40, 40, 0.8);
+  backdrop-filter: blur(6px);
+}
+
 </style>
 
 <body>
-    <h1>Sounds 🔊 Radiant 💡</h1>
-    <h3>
-      <a href="https://www.instagram.com/soundsradiant/">
-        Follow Josh on Instagram @soundsradiant
-      </a>
-    </h3>
 
-    <form id="subscribe-form" action="https://serverless-sounds-radiant-b7hlf.ondigitalocean.app/forms/subscribe">
-      <label for="email">Subscribe</label><br>
-      <input type="email" id="email" name="email"><br>
-      <button type="submit">Submit</button>
-    </form>
-    <p id="subscribe-thank-you" style="display: none;">Thank you 💚</p>
+    <div class="main">
+      <h1 class="hero" style="">Sounds Radiant</h1>
+
+      <p style="padding-top: 16px;">
+        Improvised music. Color evolved.
+      </p>
+
+      <a href="https://instagram.com/soundsradiant/">
+        <img src="./assets/bwinsta.png" class="insta-qr" />
+      </a>
+
+      <p style="padding-bottom: 16px;">
+        Thank you for listening to live music.
+      </p>
+
+      <button class="modal-open" modal-id="note-modal">
+        A note from the artist
+      </button>
+
+      <button class="modal-open" modal-id="subscribe-modal">
+        Subscribe to monthly newsletter
+      </button>
+
+    </div>
+
+    <div id="note-modal" class="modal main">
+      <div style="max-width: 500px; margin: auto; margin-top: 24px;">
+        <p>
+          Whether you are a regular or it is your first time, thank you for stopping by.
+        </p>
+        <p>
+          Your awareness helps motivate me.
+        </p>
+        <p>
+          I am a part of a local San Francsico artistic community that dreams of creating unforgettable experiences.
+        </p>
+        <p>
+          Stay tuned for what comes next.
+        </p>
+        <p>
+          Please consider following me either on Instagram or subscribing to my monthly email newsletter.
+        </p>
+        <p>
+          <button class="modal-close" style="text-align: center;">
+            Close
+          </button>
+        </p>
+        <p>
+          <a href="https://musician.tips/tonymartineztrio">
+            <button>
+              Donate
+            </button>
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <div id="subscribe-modal" class="modal main">
+      <div style="max-width: 500px; margin: auto; margin-top: 24px;">
+        <p>
+          <form id="subscribe-form" action="https://serverless-sounds-radiant-b7hlf.ondigitalocean.app/forms/subscribe">
+            <label for="email" style="color: white;">Subscribe</label><br>
+            <input type="email" id="email" name="email"><br>
+            <button type="submit">Submit</button>
+          </form>
+        </p>
+        <p>
+          <button class="modal-close" style="text-align: center;">
+            Close
+          </button>
+        </p>
+        <p id="subscribe-thank-you" style="display: none;">Thank you 💚</p>
+      </div>
+    </div>
+
 </body>
 
 <script>
 
+const BACKGROUND_IMAGES = [
+    'autumnal-peach.png',
+    'blossom.png',
+    'blushing-fire.png',
+    'bright-rain.png',
+    'floss.png',
+    'glass-rainbow.png',
+    'good-vibes.png',
+    // 'moonrise.png',
+    // 'ray-of-lights.png',
+    // 'rose-thorn.png',
+];
+
+/* Set the background image */
+let backgroundImage;
+if(localStorage.getItem('backgroundImage')) {
+  backgroundImage = localStorage.getItem('backgroundImage');
+} else {
+  backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
+  localStorage.setItem('backgroundImage', backgroundImage);
+}
+document.body.style.backgroundImage = `url('./assets/${backgroundImage}')`;
+
+/* Subscribe form */
+const modals = document.querySelectorAll('.modal');
+const modalOpenButtons = document.querySelectorAll('.modal-open');
+const modalCloseButtons = document.querySelectorAll('.modal-close');
+for(const modalOpenButton of modalOpenButtons) {
+  modalOpenButton.addEventListener('click', (e) => {
+    const modalId = e.target.getAttribute('modal-id');
+    document.getElementById(modalId).style.display = 'block';
+  });
+}
+for(const modalCloseButton of modalCloseButtons) {
+  modalCloseButton.addEventListener('click', (e) => {
+    e.target.closest('.modal').style.display = 'none';
+  });
+}
+
+/* Subscribe form */
 const subscribeForm = document.querySelector('#subscribe-form');
 const thankYouMessage = document.querySelector('#subscribe-thank-you');
-
 subscribeForm.addEventListener('submit', (e) => {
   e.preventDefault();
   subscribeForm.submit();
