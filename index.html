@@ -8,210 +8,104 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tourney:wght@300;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <style>
+
+      body {
+        background-size: fill;
+        margin: 0;
+        color: white;
+        display: flex;
+        justify-content: center;
+        font-family: 'Nunito', sans-serif;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      a {
+        color: inherit;
+      }
+
+    </style>
+
 </head>
 
-<style>
-
-body {
-  background-size: fill;
-  margin: 0;
-}
-
-p {
-  font-family: 'Tourney';
-  color: white;
-  font-weight: 900;
-  font-size: 18px;
-  text-align: center;
-}
-
-button {
-  width: 240px;
-  height: 36px;
-  margin-bottom: 8px;
-}
-
-#subscribe-form {
-  margin-top: 64px;
-}
-
-#subscribe-thank-you {
-  font-weight: bold;
-  color: #22FF22;
-}
-
-.main {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero {
-  font-family: 'Tourney';
-  background-color: white;
-  color: black;
-  font-size: min(8vw, 64px); /* Responsive font size */
-  font-weight: 300;
-  padding: 18px 24px;
-  margin: 0 16px;
-  max-width: 800px;
-  text-align: center; /* Center text */
-  mix-blend-mode: screen; /* This makes the cutout text possible */
-  border-radius: 14px;
-}
-
-.insta-qr {
-  filter: invert(100%);
-  margin: 48px 0;
-  width: 168px;
-  height: 168px;
-}
-
-.modal {
-  display: none;
-  position: absolute;
-  top: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: rgba(40, 40, 40, 0.8);
-  backdrop-filter: blur(6px);
-}
-
-</style>
-
 <body>
+  <div style="max-width: 400px;">
+    <br>
+    <h1>Sounds Radiant</h1>
 
-    <div class="main">
-      <h1 class="hero" style="">Sounds Radiant</h1>
+    <h2>Improvised Music. Color Evolved.</h2>
+    <br>
 
-      <p style="padding-top: 16px;">
-        Improvised music. Color evolved.
-      </p>
+    <p>
+      Josh is a percussionist, specializing in a mostly- traditional trap drum-set, playing music rooted in the jazz tradition. He is inspired by engaging instrumental music, poetry, and narrative based lyrics.
+    </p>
 
-      <a href="https://instagram.com/soundsradiant/">
-        <img src="./assets/bwinsta.png" class="insta-qr" />
-      </a>
+    <p>
+      In tandem with his live improvised playing, he also creates custom LED light exhibits to go with the music.
+    </p>
 
-      <p style="padding-bottom: 16px;">
-        Thank you for listening to live music.
-      </p>
+    <p>
+      He began on the empty streets of San Francisco during the COVID pandemic, busking as the drummer in a piano drum duet. The piano player, Tony Martinez, is from Cuba and fuses the heart and soul of Cuba with contemporary American rhythms. <a href="https://www.instagram.com/p/ChfmQ9IgPvY/">Click here for a sample of Josh and Tony as a duo.</a>
+    </p>
 
-      <button class="modal-open" modal-id="note-modal">
-        A note from the artist
-      </button>
+    <br>
 
-      <button class="modal-open" modal-id="subscribe-modal">
-        Subscribe to monthly newsletter
-      </button>
+    <p>
+      As society began to open up, Josh started collaborating with other gigging musicians in the San Francisco jazz scene. <a href="https://www.instagram.com/p/Cky9-kFyyvN/">Click here for a sample of Josh in a trio setting.</a>
+    </p>
 
-    </div>
+    <p>
+      Nowadays, Josh runs a musician collective space in San Francisco for professionals to practice, workshop, rehearse, record, and listen to Black Music. It is supported by mutual aid and donations.
+    </p>
 
-    <div id="note-modal" class="modal main">
-      <div style="max-width: 500px; margin: auto; margin-top: 24px;">
-        <p>
-          Whether you are a regular or it is your first time, thank you for stopping by.
-        </p>
-        <p>
-          Your awareness helps motivate me.
-        </p>
-        <p>
-          I am a part of a local San Francsico artistic community that dreams of creating unforgettable experiences.
-        </p>
-        <p>
-          Stay tuned for what comes next.
-        </p>
-        <p>
-          Please consider following me either on Instagram or subscribing to my monthly email newsletter.
-        </p>
-        <p>
-          <button class="modal-close" style="text-align: center;">
-            Close
-          </button>
-        </p>
-        <p>
-          <a href="https://musician.tips/soundsradiant/">
-            <button>
-              Donate
-            </button>
-          </a>
-        </p>
-      </div>
-    </div>
+    <p>
+      Here are two samples of live music, premeditated by rehearsal, in the studio space. <a href="https://www.instagram.com/p/CpRfnFfAKc6/">Click here for the first sample.</a> <a href="https://www.instagram.com/p/CqAEB7mgnj9/">Click here for the second sample.</a>
+    </p>
 
-    <div id="subscribe-modal" class="modal main">
-      <div style="max-width: 500px; margin: auto; margin-top: 24px;">
-        <p>
-          <form id="subscribe-form" action="https://serverless-sounds-radiant-b7hlf.ondigitalocean.app/forms/subscribe">
-            <label for="email" style="color: white;">Subscribe</label><br>
-            <input type="email" id="email" name="email"><br>
-            <button type="submit">Submit</button>
-          </form>
-        </p>
-        <p>
-          <button class="modal-close" style="text-align: center;">
-            Close
-          </button>
-        </p>
-        <p id="subscribe-thank-you" style="display: none;">Thank you 💚</p>
-      </div>
-    </div>
+    <br>
 
+    <p>
+      Over the last year, Josh has performed in public spaces, private events, and at notable local venues. He is a regular performer at: Union Station (Cannabis Dispensary), Foreign Lens (Art Gallery), and Ula (Music Restaurant and Bar).
+    </p>
+
+    <p>
+      Josh goes by the stage name “Sounds Radiant.” <a href="https://www.instagram.com/soundsradiant/">You can click here to browse additional samples of Sounds Radiant on their Instagram page @soundsradiant.</a>
+    </p>
+    <br>
+    <br>
+    <br>
+  </div>
 </body>
 
 <script>
 
-const BACKGROUND_IMAGES = [
-    'autumnal-peach.png',
-    'blossom.png',
-    'blushing-fire.png',
-    'bright-rain.png',
-    'floss.png',
-    'glass-rainbow.png',
-    'good-vibes.png',
-    // 'moonrise.png',
-    // 'ray-of-lights.png',
-    // 'rose-thorn.png',
-];
+  const BACKGROUND_IMAGES = [
+      'autumnal-peach.png',
+      // 'blossom.png',
+      'blushing-fire.png',
+      'bright-rain.png',
+      'floss.png',
+      // 'glass-rainbow.png',
+      'good-vibes.png',
+      // 'moonrise.png',
+      // 'ray-of-lights.png',
+      // 'rose-thorn.png',
+  ];
 
-/* Set the background image */
-let backgroundImage;
-if(localStorage.getItem('backgroundImage')) {
-  backgroundImage = localStorage.getItem('backgroundImage');
-} else {
-  backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
-  localStorage.setItem('backgroundImage', backgroundImage);
-}
-document.body.style.backgroundImage = `url('./assets/${backgroundImage}')`;
-
-/* Subscribe form */
-const modals = document.querySelectorAll('.modal');
-const modalOpenButtons = document.querySelectorAll('.modal-open');
-const modalCloseButtons = document.querySelectorAll('.modal-close');
-for(const modalOpenButton of modalOpenButtons) {
-  modalOpenButton.addEventListener('click', (e) => {
-    const modalId = e.target.getAttribute('modal-id');
-    document.getElementById(modalId).style.display = 'block';
-  });
-}
-for(const modalCloseButton of modalCloseButtons) {
-  modalCloseButton.addEventListener('click', (e) => {
-    e.target.closest('.modal').style.display = 'none';
-  });
-}
-
-/* Subscribe form */
-const subscribeForm = document.querySelector('#subscribe-form');
-const thankYouMessage = document.querySelector('#subscribe-thank-you');
-subscribeForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  subscribeForm.submit();
-  subscribeForm.style.display = 'none';
-  thankYouMessage.style.display = 'block';
-});
+  /* Set the background image */
+  let backgroundImage;
+  if(localStorage.getItem('backgroundImage')) {
+    backgroundImage = localStorage.getItem('backgroundImage');
+  } else {
+    backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
+    localStorage.setItem('backgroundImage', backgroundImage);
+  }
+  document.body.style.backgroundImage = `url('./assets/${backgroundImage}')`;
 
 </script>
 
