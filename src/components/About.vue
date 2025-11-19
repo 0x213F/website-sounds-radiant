@@ -41,6 +41,7 @@
               <span class="venue" data-weight="3">Precita Park</span>
               <span class="venue" data-weight="2">Hila Gelato Caffè</span>
               <span class="venue" data-weight="1">Make-Out Room</span>
+              <span class="venue" data-weight="2">Paris 75</span>
             </div>
             <div class="venue-cloud" aria-hidden="true" style="animation-duration: 50s; animation-direction: reverse;">
               <span class="venue" data-weight="1">Arsicault Bakery</span>
@@ -49,6 +50,7 @@
               <span class="venue" data-weight="3">Precita Park</span>
               <span class="venue" data-weight="2">Hila Gelato Caffè</span>
               <span class="venue" data-weight="1">Make-Out Room</span>
+              <span class="venue" data-weight="2">Paris 75</span>
             </div>
           </div>
 
