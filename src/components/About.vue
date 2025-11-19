@@ -83,6 +83,7 @@
               <span class="venue" data-weight="2">Market Street Arts</span>
               <span class="venue" data-weight="2">Amelie</span>
               <span class="venue" data-weight="2">Ula Restaurant & Tapas Bar</span>
+              <span class="venue" data-weight="3">Art Galleries</span>
             </div>
             <div class="venue-cloud" aria-hidden="true" style="animation-duration: 60s; animation-direction: reverse;">
               <span class="venue" data-weight="2">Italian Athletic Club</span>
@@ -91,6 +92,7 @@
               <span class="venue" data-weight="2">Market Street Arts</span>
               <span class="venue" data-weight="2">Amelie</span>
               <span class="venue" data-weight="2">Ula Restaurant & Tapas Bar</span>
+              <span class="venue" data-weight="3">Art Galleries</span>
             </div>
           </div>
         </div>
