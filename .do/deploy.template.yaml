@@ -1,8 +1,9 @@
 spec:
   name: website-sounds-radiant
   static_sites:
-  - environment_slug: html
+  - name: website-sounds-radiant
     git:
       branch: main
       repo_clone_url: https://github.com/0x213F/website-sounds-radiant.git
-    name: website-sounds-radiant
+    build_command: npm run build
+    output_dir: dist

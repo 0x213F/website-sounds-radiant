@@ -1,8 +1,9 @@
 name: website-sounds-radiant
 static_sites:
-- environment_slug: html
+- name: website-sounds-radiant
   github:
     branch: main
     deploy_on_push: true
     repo: 0x213F/website-sounds-radiant
-  name: website-sounds-radiant
+  build_command: npm run build
+  output_dir: dist

@@ -1,97 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sounds Radiant</title>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Josh Schultheiss - Percussionist</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-
-    <style>
-
-      body {
-        background-size: fill;
-        margin: 0;
-        color: white;
-        display: flex;
-        justify-content: center;
-        font-family: 'Nunito', sans-serif;
-      }
-
-      p {
-        font-size: 18px;
-      }
-
-      a {
-        color: inherit;
-      }
-
-    </style>
-
-</head>
-
-<body>
-  <div style="max-width: 400px;">
-    <br>
-    <h1>Sounds Radiant</h1>
-
-    <h2>Improvised Music. Color Evolved.</h2>
-    <br>
-
-    <p>
-      Josh is a percussionist. He plays in a variety of settings, some of which include: jazz, rock, funk, bossa nova, samba, and jam band.
-    </p>
-
-    <p>
-      He encorperates custom LED lights with his music to create a vibe.
-    </p>
-
-    <p>
-      Josh performs in public spaces, private events, and local venues.
-    </p>
-
-    <p>
-      He goes by the stage name “Sounds Radiant.” <a href="https://www.instagram.com/soundsradiant/">Click here to browse additional samples of Sounds Radiant on their Instagram page @soundsradiant.</a>
-    </p>
-    <br>
-
-    <p>
-      Email subscribe@soundsradiant.com to join Josh's newsletter.</a>
-    </p>
-    <br>
-    <br>
-    <br>
-  </div>
-</body>
-
-<script>
-
-  const BACKGROUND_IMAGES = [
-      'autumnal-peach.png',
-      // 'blossom.png',
-      'blushing-fire.png',
-      'bright-rain.png',
-      'floss.png',
-      // 'glass-rainbow.png',
-      'good-vibes.png',
-      // 'moonrise.png',
-      // 'ray-of-lights.png',
-      // 'rose-thorn.png',
-  ];
-
-  /* Set the background image */
-  let backgroundImage;
-  if(localStorage.getItem('backgroundImage')) {
-    backgroundImage = localStorage.getItem('backgroundImage');
-  } else {
-    backgroundImage = BACKGROUND_IMAGES[Math.floor(Math.random() * BACKGROUND_IMAGES.length)];
-    localStorage.setItem('backgroundImage', backgroundImage);
-  }
-  document.body.style.backgroundImage = `url('./assets/${backgroundImage}')`;
-
-</script>
-
+    <!-- Multiple fonts for different themes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Courier+Prime:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
