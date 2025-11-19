@@ -23,7 +23,7 @@ const themes = {
     // Content
     content: {
       heroTitle: 'Josh Schultheiss',
-      heroSubtitle: 'Percussionist & Musical Artist',
+      heroSubtitle: 'Musical Performer',
       showAudio: true,
       navSections: ['about', 'music']
     }
