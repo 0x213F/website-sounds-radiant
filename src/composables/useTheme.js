@@ -125,7 +125,7 @@ export function useTheme() {
 
   // Load saved theme on mount
   onMounted(() => {
-    const savedTheme = localStorage.getItem('selectedTheme') || 'light'
+    const savedTheme = localStorage.getItem('selectedTheme') || 'veganLeather'
     currentTheme.value = savedTheme
     applyTheme(savedTheme)
   })
