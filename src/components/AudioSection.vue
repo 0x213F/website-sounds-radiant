@@ -50,7 +50,7 @@ const tracks = ref([
     title: 'Funk',
     description: 'Organ Trio playing jazz-and-pop cannon from the 80s and 90s',
     audioSrc: '/assets/audio/do-for-love.m4a',
-    revealMessage: 'Live at a bar & restaurant'
+    revealMessage: 'Live at restaurant & bar'
   },
   {
     genre: 'Live Music',

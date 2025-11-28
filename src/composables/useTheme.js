@@ -23,7 +23,7 @@ const themes = {
     // Content
     content: {
       heroTitle: 'Josh Schultheiss',
-      heroSubtitle: 'Musical Performer',
+      heroSubtitle: 'Music Performance',
       showAudio: true,
       navSections: ['about', 'music']
     }
@@ -51,7 +51,7 @@ const themes = {
     // Content
     content: {
       heroTitle: 'Josh Schultheiss',
-      heroSubtitle: 'Software Developer',
+      heroSubtitle: 'Software Development',
       showAudio: false,
       navSections: ['about', 'projects']
     }

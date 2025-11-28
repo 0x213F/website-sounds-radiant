@@ -95,7 +95,7 @@
             </div>
           </div>
         </div>
-        <p>
+        <p style="margin-top: 2rem;">
           Side-man and bandleader, Josh Schultheiss performs regularly across the Bay Area.
         </p>
       </div>
