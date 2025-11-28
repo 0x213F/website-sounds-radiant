@@ -2,7 +2,7 @@
   <section class="project-section" id="projects">
     <div class="container">
       <h2>Projects</h2>
-      <p class="section-subtitle">Explore a selection of my work</p>
+      <p class="section-subtitle">Explore a selection of my current work</p>
 
       <div class="project-grid">
         <ProjectCard
@@ -31,14 +31,14 @@ const projects = ref([
   },
   {
     category: 'Web App',
-    title: 'Voice Controlla',
-    description: 'A vocal toolkit for never-before-heard sounds and a suite of AI music empowerment tools.',
+    title: 'Controlla Voice',
+    description: 'A vocal toolkit for never-before-heard sounds, plus a suite of additional AI music empowerment tools.',
     url: 'https://voice.controlla.xyz'
   },
   {
     category: 'Web App',
     title: 'Right Work',
-    description: 'AI-powered labor optimization software: Accurately forecast and reduce labor costs, gain operational efficiencies in your business, and empower your workforce.',
+    description: 'Accurately forecast and reduce labor costs, gain operational efficiencies in your business, and empower your workforce.',
     url: 'https://right.work'
   }
 ])

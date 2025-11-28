@@ -6,10 +6,7 @@
       <!-- Music Profile (Vegan Leather Theme) -->
       <div v-if="currentTheme === 'veganLeather'" class="highlight">
         <p>
-          San Francisco-based side-man and bandleader Josh Schultheiss performs regularly across the Bay Area.
-        </p>
-        <p>
-          Best known for his delicate percussive style and his <a href="#" @click.prevent="showMarkTreeModal = true" class="mark-tree-link">mark tree</a> performances, he brings honest and enjoyable music to your ears. He has had 100s of performance across diverse local venues including:
+          Best known for his delicate percussive style and his <a href="#" @click.prevent="showMarkTreeModal = true" class="mark-tree-link">mark tree</a> performances, he brings honest and enjoyable music to your ears. He has had 100s of performances across diverse local venues including:
         </p>
         <div class="venue-cloud-wrapper">
           <!-- Row 1: Slow, big venues -->
@@ -98,6 +95,9 @@
             </div>
           </div>
         </div>
+        <p>
+          Side-man and bandleader, Josh Schultheiss performs regularly across the Bay Area.
+        </p>
       </div>
       <p v-if="currentTheme === 'veganLeather'" class="instagram-cta">
         Follow on Instagram
