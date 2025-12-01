@@ -6,6 +6,7 @@
         <li><a href="#about" @click.prevent="scrollTo('about')">About</a></li>
         <li v-if="currentContent.showAudio"><a href="#audio" @click.prevent="scrollTo('audio')">Listen</a></li>
         <li v-if="currentTheme === 'programmer'"><a href="#projects" @click.prevent="scrollTo('projects')">Projects</a></li>
+        <li v-if="currentTheme === 'heartthrob'"><a href="#memories" @click.prevent="scrollTo('memories')">Memories</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')">Contact</a></li>
       </ul>
     </div>
@@ -21,6 +22,11 @@ const scrollTo = (id) => {
   const element = document.getElementById(id)
   if (element) {
     element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+    // Dispatch custom event for contact section animation
+    if (id === 'contact') {
+      window.dispatchEvent(new CustomEvent('contact-clicked'))
+    }
   }
 }
 </script>

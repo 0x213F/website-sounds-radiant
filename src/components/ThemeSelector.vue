@@ -44,11 +44,11 @@ import { useTheme } from '../composables/useTheme'
 const { currentTheme, themes, setTheme } = useTheme()
 const showSelector = ref(false)
 
-// Filter out retro theme for now
+// Filter out retro and heartthrob themes for now
 const availableThemes = computed(() => {
   const filtered = {}
   for (const [key, value] of Object.entries(themes)) {
-    if (key !== 'retro') {
+    if (key !== 'retro' && key !== 'heartthrob') {
       filtered[key] = value
     }
   }
@@ -97,7 +97,9 @@ if (typeof window !== 'undefined') {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
+  min-width: 115px;
+  justify-content: center;
 }
 
 /* Theme-specific toggle button styles */

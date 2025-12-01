@@ -51,7 +51,8 @@
 </template>
 
 <script setup>
-import { ref, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useAudioPlayer } from '../composables/useAudioPlayer'
 
 const props = defineProps({
   audioSrc: {
@@ -69,6 +70,11 @@ const isPlaying = ref(false)
 const textRevealed = ref(false)
 const hasRevealed = ref(false) // Track if text has been revealed once
 
+// Generate unique player ID
+const playerId = `player-${Math.random().toString(36).substr(2, 9)}`
+const { registerPlayer } = useAudioPlayer()
+const playerControls = ref(null)
+
 const togglePlay = () => {
   if (!audioRef.value) return
 
@@ -81,14 +87,24 @@ const togglePlay = () => {
 
 const onPlay = () => {
   isPlaying.value = true
+  // Notify other players to pause
+  if (playerControls.value) {
+    playerControls.value.play()
+  }
 }
 
 const onPause = () => {
   isPlaying.value = false
+  if (playerControls.value) {
+    playerControls.value.pause()
+  }
 }
 
 const onEnded = () => {
   isPlaying.value = false
+  if (playerControls.value) {
+    playerControls.value.pause()
+  }
 }
 
 const onTimeUpdate = () => {
@@ -101,11 +117,24 @@ const onTimeUpdate = () => {
   }
 }
 
+// Listen for pause events from other players
+const handleAudioPlayerChange = (event) => {
+  if (event.detail.playerId === playerId && audioRef.value) {
+    audioRef.value.pause()
+  }
+}
+
+onMounted(() => {
+  playerControls.value = registerPlayer(playerId, audioRef.value)
+  window.addEventListener('audio-player-change', handleAudioPlayerChange)
+})
+
 // Cleanup
 onUnmounted(() => {
   if (audioRef.value) {
     audioRef.value.pause()
   }
+  window.removeEventListener('audio-player-change', handleAudioPlayerChange)
 })
 </script>
 

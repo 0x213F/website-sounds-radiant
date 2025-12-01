@@ -5,6 +5,7 @@
   <About />
   <AudioSection v-if="currentContent.showAudio" />
   <ProjectSection v-if="currentTheme === 'programmer'" />
+  <MemoriesSection v-if="currentTheme === 'heartthrob'" />
   <Footer />
   <ThemeSelector />
 </template>
@@ -17,6 +18,7 @@ import Hero from './components/Hero.vue'
 import About from './components/About.vue'
 import AudioSection from './components/AudioSection.vue'
 import ProjectSection from './components/ProjectSection.vue'
+import MemoriesSection from './components/MemoriesSection.vue'
 import Footer from './components/Footer.vue'
 import ThemeSelector from './components/ThemeSelector.vue'
 

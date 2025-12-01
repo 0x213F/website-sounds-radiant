@@ -83,6 +83,43 @@ const themes = {
       showAudio: false,
       navSections: ['about', 'photos']
     }
+  },
+
+  // Heartthrob theme - Personal/Romantic Profile
+  heartthrob: {
+    name: 'Heartthrob',
+    textPrimary: '#fce7e7',
+    textSecondary: '#e8b4b8',
+    textLight: '#c99195',
+    bgPrimary: '#2d1618',
+    bgSecondary: '#3d2224',
+    accent: '#d4878d',
+    border: '#5a3639',
+    // Typography - Option 1: Pacifico + Poppins (Romantic Script)
+    fontFamily: '"Pacifico", cursive',
+    fontBody: '"Poppins", sans-serif',
+    // Typography - Option 2: Cormorant Garamond + Montserrat (Elegant & Soft)
+    // fontFamily: '"Cormorant Garamond", serif',
+    // fontBody: '"Montserrat", sans-serif',
+    // Typography - Option 3: Lora + Raleway (Modern Romantic)
+    // fontFamily: '"Lora", serif',
+    // fontBody: '"Raleway", sans-serif',
+    // Typography - Option 4: Crimson Text + Source Sans Pro (Classic Love Letter)
+    // fontFamily: '"Crimson Text", serif',
+    // fontBody: '"Source Sans Pro", sans-serif',
+    // Style properties
+    borderRadius: '16px',
+    borderRadiusSmall: '10px',
+    shadowStyle: '0 10px 30px rgba(212, 135, 141, 0.15)',
+    badgeStyle: 'rounded',
+    buttonStyle: 'rounded',
+    // Content
+    content: {
+      heroTitle: 'Josh Schultheiss',
+      heroSubtitle: 'Personal Life',
+      showAudio: false,
+      navSections: ['about', 'moments']
+    }
   }
 }
 

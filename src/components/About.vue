@@ -6,7 +6,7 @@
       <!-- Music Profile (Vegan Leather Theme) -->
       <div v-if="currentTheme === 'veganLeather'" class="highlight">
         <p>
-          Best known for his delicate percussive style and his <a href="#" @click.prevent="showMarkTreeModal = true" class="mark-tree-link">mark tree</a> performances, he brings honest and enjoyable music to your ears. He has had 100s of performances across diverse local venues including:
+          Best known for his <em>dynamic percussive style</em> and his <a href="#" @click.prevent="showMarkTreeModal = true" class="mark-tree-link">mark tree</a> performances, he brings honest and enjoyable music to your ears. He has had 100s of performances across diverse local venues including:
         </p>
         <div class="venue-cloud-wrapper">
           <!-- Row 1: Slow, big venues -->
@@ -110,9 +110,6 @@
         <p>
           Full-stack software developer based in San Francisco with expertise in modern consumer software.
         </p>
-        <p>
-          Passionate about solving problems with elegant solutions.
-        </p>
         <div class="tech-cloud-wrapper">
           <!-- Row 1 -->
           <div class="tech-cloud-row">
@@ -212,6 +209,9 @@
             </div>
           </div>
         </div>
+        <p style="margin-top: 2rem;">
+          Passionate about solving problems with elegant solutions.
+        </p>
       </div>
 
       <!-- Personal Profile (Retro Theme) -->
@@ -230,6 +230,80 @@
         Follow my adventures on
         <a href="https://www.instagram.com/soundsradiant/" target="_blank" class="instagram-link">Instagram</a>
         for photos and updates.
+      </p>
+
+      <!-- Personal Profile (Heartthrob Theme) -->
+      <div v-if="currentTheme === 'heartthrob'" class="highlight">
+        <p>
+          Life's most beautiful moments are meant to be felt, not just observed. Welcome to my corner of the world.
+        </p>
+        <p>
+          Between sunrises over the Golden Gate, late-night conversations that stretch until dawn, spontaneous road trips up the coast, and quiet evenings with a good book—this is where I share the pieces of life that make my heart full.
+        </p>
+        <div class="moments-cloud-wrapper">
+          <!-- Row 1 -->
+          <div class="moments-cloud-row">
+            <div class="moments-cloud" style="animation-duration: 70s;">
+              <span class="moment" data-weight="2">Coffee & Conversation</span>
+              <span class="moment" data-weight="1">Sunset Chasing</span>
+              <span class="moment" data-weight="3">Weekend Adventures</span>
+              <span class="moment" data-weight="2">Live Music</span>
+              <span class="moment" data-weight="1">Late Night Walks</span>
+            </div>
+            <div class="moments-cloud" aria-hidden="true" style="animation-duration: 70s;">
+              <span class="moment" data-weight="2">Coffee & Conversation</span>
+              <span class="moment" data-weight="1">Sunset Chasing</span>
+              <span class="moment" data-weight="3">Weekend Adventures</span>
+              <span class="moment" data-weight="2">Live Music</span>
+              <span class="moment" data-weight="1">Late Night Walks</span>
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="moments-cloud-row">
+            <div class="moments-cloud" style="animation-duration: 50s; animation-direction: reverse;">
+              <span class="moment" data-weight="1">Ocean Dips</span>
+              <span class="moment" data-weight="2">Vinyl Sessions</span>
+              <span class="moment" data-weight="3">City Exploration</span>
+              <span class="moment" data-weight="2">Cooking Together</span>
+              <span class="moment" data-weight="1">Morning Journaling</span>
+            </div>
+            <div class="moments-cloud" aria-hidden="true" style="animation-duration: 50s; animation-direction: reverse;">
+              <span class="moment" data-weight="1">Ocean Dips</span>
+              <span class="moment" data-weight="2">Vinyl Sessions</span>
+              <span class="moment" data-weight="3">City Exploration</span>
+              <span class="moment" data-weight="2">Cooking Together</span>
+              <span class="moment" data-weight="1">Morning Journaling</span>
+            </div>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="moments-cloud-row">
+            <div class="moments-cloud" style="animation-duration: 60s;">
+              <span class="moment" data-weight="2">Farmers Markets</span>
+              <span class="moment" data-weight="1">Art Galleries</span>
+              <span class="moment" data-weight="3">Road Trips</span>
+              <span class="moment" data-weight="2">Film Photography</span>
+              <span class="moment" data-weight="1">Rooftop Hangs</span>
+              <span class="moment" data-weight="2">Golden Hour</span>
+            </div>
+            <div class="moments-cloud" aria-hidden="true" style="animation-duration: 60s;">
+              <span class="moment" data-weight="2">Farmers Markets</span>
+              <span class="moment" data-weight="1">Art Galleries</span>
+              <span class="moment" data-weight="3">Road Trips</span>
+              <span class="moment" data-weight="2">Film Photography</span>
+              <span class="moment" data-weight="1">Rooftop Hangs</span>
+              <span class="moment" data-weight="2">Golden Hour</span>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 2rem;">
+          Every moment is a chance to create something beautiful. Let's make memories worth keeping.
+        </p>
+      </div>
+      <p v-if="currentTheme === 'heartthrob'" class="instagram-cta">
+        Come along for the ride
+        <a href="https://www.instagram.com/soundsradiant/" target="_blank" class="instagram-link">@soundsradiant</a>
       </p>
     </div>
 
@@ -297,7 +371,8 @@ const showMarkTreeModal = ref(false)
 }
 
 .venue-cloud-wrapper,
-.tech-cloud-wrapper {
+.tech-cloud-wrapper,
+.moments-cloud-wrapper {
   overflow: hidden;
   margin: 1.5rem 0 0 0;
   padding: 1rem 0;
@@ -307,26 +382,28 @@ const showMarkTreeModal = ref(false)
 }
 
 .venue-cloud-row,
-.tech-cloud-row {
+.tech-cloud-row,
+.moments-cloud-row {
   overflow: hidden;
   margin-bottom: 1rem;
   white-space: nowrap;
 }
 
 .venue-cloud-row:last-child,
-.tech-cloud-row:last-child {
+.tech-cloud-row:last-child,
+.moments-cloud-row:last-child {
   margin-bottom: 0;
 }
 
 .venue-cloud,
-.tech-cloud {
+.tech-cloud,
+.moments-cloud {
   display: inline-flex;
   flex-wrap: nowrap;
   gap: 1.5rem;
   align-items: center;
   animation: scroll 60s linear infinite;
   white-space: nowrap;
-  padding-right: 1.5rem;
 }
 
 @keyframes scroll {
@@ -339,7 +416,8 @@ const showMarkTreeModal = ref(false)
 }
 
 .venue,
-.tech {
+.tech,
+.moment {
   color: var(--text-secondary);
   font-weight: 500;
   cursor: default;
@@ -361,26 +439,30 @@ const showMarkTreeModal = ref(false)
 
 /* Weight-based sizing */
 .venue[data-weight="1"],
-.tech[data-weight="1"] {
+.tech[data-weight="1"],
+.moment[data-weight="1"] {
   font-size: 0.75rem;
   opacity: 0.6;
 }
 
 .venue[data-weight="2"],
-.tech[data-weight="2"] {
+.tech[data-weight="2"],
+.moment[data-weight="2"] {
   font-size: 0.95rem;
   opacity: 0.75;
 }
 
 .venue[data-weight="3"],
-.tech[data-weight="3"] {
+.tech[data-weight="3"],
+.moment[data-weight="3"] {
   font-size: 1.35rem;
   font-weight: 600;
   opacity: 0.9;
 }
 
 .venue[data-weight="4"],
-.tech[data-weight="4"] {
+.tech[data-weight="4"],
+.moment[data-weight="4"] {
   font-size: 1.85rem;
   font-weight: 700;
   opacity: 1;

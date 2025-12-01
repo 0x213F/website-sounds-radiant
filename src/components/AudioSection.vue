@@ -62,7 +62,7 @@ const tracks = ref([
   {
     genre: 'Live Music',
     title: 'Jam Band',
-    description: 'Where the musicians crawl to have a good time',
+    description: 'Big band of musicians creating music for the fun of it',
     audioSrc: '/assets/audio/toms-diner.mp3',
     revealMessage: 'Live at a secret venue'
   }
