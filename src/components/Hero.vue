@@ -34,17 +34,6 @@ const { currentContent } = useTheme()
   letter-spacing: 0;
 }
 
-.theme-programmer .hero h1 {
-  letter-spacing: -0.05em;
-  font-weight: 500;
-}
-
-.theme-retro .hero h1 {
-  letter-spacing: 0;
-  font-weight: 700;
-  text-decoration: underline;
-}
-
 .hero .subtitle {
   font-size: 1.5rem;
   color: var(--text-secondary);

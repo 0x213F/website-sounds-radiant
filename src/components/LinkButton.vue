@@ -50,23 +50,4 @@ defineProps({
 }
 
 /* Theme-specific button styles */
-.theme-programmer .link-button {
-  border: 1px solid var(--accent);
-  background: transparent;
-  color: var(--accent);
-}
-
-.theme-programmer .link-button:hover {
-  background: var(--accent);
-  color: var(--bg-primary);
-}
-
-.theme-retro .link-button {
-  border: 2px outset var(--accent);
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
-}
-
-.theme-retro .link-button:hover {
-  border-style: inset;
-}
 </style>

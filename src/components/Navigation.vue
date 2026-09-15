@@ -4,9 +4,7 @@
       <h1>Josh Schultheiss</h1>
       <ul class="nav-links">
         <li><a href="#about" @click.prevent="scrollTo('about')">About</a></li>
-        <li v-if="currentContent.showAudio"><a href="#audio" @click.prevent="scrollTo('audio')">Listen</a></li>
-        <li v-if="currentTheme === 'programmer'"><a href="#projects" @click.prevent="scrollTo('projects')">Projects</a></li>
-        <li v-if="currentTheme === 'heartthrob'"><a href="#memories" @click.prevent="scrollTo('memories')">Memories</a></li>
+        <li><a href="#audio" @click.prevent="scrollTo('audio')">Listen</a></li>
         <li><a href="#contact" @click.prevent="scrollTo('contact')">Contact</a></li>
       </ul>
     </div>
@@ -14,10 +12,6 @@
 </template>
 
 <script setup>
-import { useTheme } from '../composables/useTheme'
-
-const { currentContent, currentTheme } = useTheme()
-
 const scrollTo = (id) => {
   const element = document.getElementById(id)
   if (element) {
@@ -56,15 +50,6 @@ nav h1 {
   font-weight: 700;
   color: var(--text-primary);
   font-family: var(--font-family);
-}
-
-/* Theme-specific nav styles */
-.theme-retro nav {
-  border-bottom: 4px ridge var(--border);
-}
-
-.theme-programmer nav {
-  border-bottom: 1px solid var(--accent);
 }
 
 .nav-links {

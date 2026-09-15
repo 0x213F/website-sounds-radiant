@@ -163,20 +163,6 @@ onUnmounted(() => {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Theme-specific button styles */
-.theme-retro .play-pause-btn {
-  border-radius: 0;
-  border: 2px outset var(--accent);
-  box-shadow: var(--shadow-style);
-}
-
-.theme-programmer .play-pause-btn {
-  border-radius: var(--border-radius-small);
-  border: 1px solid var(--accent);
-  background: var(--bg-secondary);
-  color: var(--accent);
-}
-
 .play-pause-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

@@ -23,11 +23,10 @@ Professional portfolio website for Josh Schultheiss, a percussionist and musical
 - `AudioCard.vue` - Reusable component for individual audio tracks, uses PlayButton
 - `AudioSection.vue` - Grid of audio tracks, uses AudioCard component
 - `Footer.vue` - Contact information and social links
-- `ThemeSelector.vue` - Floating theme switcher button with dropdown selector
 
 **Composables**: Reusable logic in `src/composables/`:
 - `useBackground.js` - Manages random background image selection and localStorage persistence
-- `useTheme.js` - Programmatic theme system with 7 pre-defined color schemes
+- `useTheme.js` - Applies the single Vegan Leather theme (colors, fonts, style tokens) as CSS variables
 
 **Responsive Design**: Mobile-first approach with breakpoints at 768px and 480px. Uses CSS Grid for audio cards and Flexbox for navigation.
 
@@ -76,39 +75,21 @@ npm run preview
 
 ## Design System
 
-**Theming System**: The site uses a comprehensive orchestrated theme system with 3 distinct themed palettes. Each theme changes not just colors, but fonts, border styles, shadows, and component aesthetics:
+**Single Theme (Vegan Leather)**: The site uses one music-focused visual theme. The theme selector and the alternate profiles (programmer / retro / heartthrob) were removed — the site is music only.
 
-1. **Vegan Leather** (default)
-   - Font: Playfair Display (serif) for headings, Inter for body
-   - Style: Rounded corners, warm shadows, elegant and sophisticated
-   - Colors: Rich brown leather tones with warm tan accents
+- Font: Playfair Display (serif) for headings, Inter for body
+- Style: Rounded corners, warm shadows, elegant and sophisticated
+- Colors: Rich brown leather tones with warm tan accents
 
-2. **Programmer**
-   - Font: JetBrains Mono (monospace) for everything
-   - Style: Sharp corners, minimal shadows, outlined badges/buttons
-   - Colors: Dark VS Code-inspired with cyan/teal accents
-
-3. **Retro**
-   - Font: Courier Prime (monospace)
-   - Style: No rounded corners, 3D inset/outset borders, underlined headings
-   - Colors: Classic 90s gray (#c0c0c0) with blue hyperlinks
-
-**Theme Variables** (CSS custom properties set dynamically):
+**Theme Variables** (CSS custom properties set on `:root` by `useTheme.js`):
 - **Colors**: `--text-primary`, `--text-secondary`, `--text-light`, `--bg-primary`, `--bg-secondary`, `--accent`, `--border`
 - **Typography**: `--font-family` (headings), `--font-body` (body text)
 - **Styles**: `--border-radius`, `--border-radius-small`, `--shadow-style`
-- **Theme Class**: Body gets class `theme-{name}` for conditional styling
+- **Theme Class**: Body always gets class `theme-veganLeather`
 
-**Fonts Loaded**: Inter, Playfair Display, JetBrains Mono, Courier Prime, Roboto
+**Fonts Loaded**: Inter, Playfair Display
 
-**Switching Themes**:
-- Click the floating "Themes" button in the bottom-right corner
-- Select any theme from the dropdown
-- Theme preference is saved to localStorage
-- Components automatically adapt fonts, borders, shadows, and styles
-
-**Adding New Themes**:
-Edit `src/composables/useTheme.js` and add to the `themes` object with color, typography, and style properties. Components will automatically use theme-specific CSS classes for conditional styling.
+To adjust the palette or typography, edit the single `theme` object in `src/composables/useTheme.js`.
 
 ## Audio Files
 

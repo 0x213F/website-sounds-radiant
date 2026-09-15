@@ -1,44 +1,22 @@
 <template>
   <footer id="contact">
     <div class="container">
-      <!-- Music Profile (Vegan Leather Theme) -->
-      <template v-if="currentTheme === 'veganLeather'">
-        <p :class="{ 'wiggle-animate': shouldAnimate }">
-          Interested in booking?
-          <button class="email-button" @click="copyEmail">
-            {{ copied ? 'Copied!' : 'Email' }}
-          </button>
-        </p>
-        <p :class="{ 'wiggle-animate': shouldAnimate }">
-          Interested in collaborating?
-          <a href="https://www.instagram.com/soundsradiant/" target="_blank">Instagram</a>
-        </p>
-      </template>
-
-      <!-- Developer Profile (Programmer Theme) -->
-      <template v-if="currentTheme === 'programmer'">
-        <p :class="{ 'wiggle-animate': shouldAnimate }">
-          Interested in connecting?
-          <a href="https://www.linkedin.com/in/joshschultheiss/" target="_blank">LinkedIn</a>
-        </p>
-      </template>
-
-      <!-- Personal Profile (Retro Theme) -->
-      <template v-if="currentTheme === 'retro'">
-        <p>
-          Interested in connecting?
-          <a href="https://www.instagram.com/soundsradiant/" target="_blank">Instagram</a>
-        </p>
-      </template>
+      <p :class="{ 'wiggle-animate': shouldAnimate }">
+        Interested in booking?
+        <button class="email-button" @click="copyEmail">
+          {{ copied ? 'Copied!' : 'Email' }}
+        </button>
+      </p>
+      <p :class="{ 'wiggle-animate': shouldAnimate }">
+        Interested in collaborating?
+        <a href="https://www.instagram.com/soundsradiant/" target="_blank">Instagram</a>
+      </p>
     </div>
   </footer>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { useTheme } from '../composables/useTheme'
-
-const { currentTheme } = useTheme()
 
 const email = 'josh@schultheiss.io'
 const copied = ref(false)
@@ -57,14 +35,11 @@ const copyEmail = async () => {
 }
 
 const handleContactClick = () => {
-  // Only animate for vegan leather and programmer themes
-  if (currentTheme.value === 'veganLeather' || currentTheme.value === 'programmer') {
-    shouldAnimate.value = true
-    // Reset animation after it completes
-    setTimeout(() => {
-      shouldAnimate.value = false
-    }, 600)
-  }
+  shouldAnimate.value = true
+  // Reset animation after it completes
+  setTimeout(() => {
+    shouldAnimate.value = false
+  }, 600)
 }
 
 onMounted(() => {

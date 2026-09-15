@@ -3,11 +3,8 @@
   <Navigation />
   <Hero />
   <About />
-  <AudioSection v-if="currentContent.showAudio" />
-  <ProjectSection v-if="currentTheme === 'programmer'" />
-  <MemoriesSection v-if="currentTheme === 'heartthrob'" />
+  <AudioSection />
   <Footer />
-  <ThemeSelector />
 </template>
 
 <script setup>
@@ -17,14 +14,10 @@ import Navigation from './components/Navigation.vue'
 import Hero from './components/Hero.vue'
 import About from './components/About.vue'
 import AudioSection from './components/AudioSection.vue'
-import ProjectSection from './components/ProjectSection.vue'
-import MemoriesSection from './components/MemoriesSection.vue'
 import Footer from './components/Footer.vue'
-import ThemeSelector from './components/ThemeSelector.vue'
 
 const { backgroundImage } = useBackground()
-const { currentContent, currentTheme, applyTheme } = useTheme()
+const { applyTheme } = useTheme()
 
-// Initialize theme - set to vegan leather theme
-applyTheme('veganLeather')
+applyTheme()
 </script>

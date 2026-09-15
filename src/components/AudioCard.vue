@@ -46,12 +46,6 @@ defineProps({
   min-height: 100%;
 }
 
-/* Theme-specific card styles */
-.theme-retro .audio-card {
-  border: 2px solid var(--border);
-  box-shadow: var(--shadow-style);
-}
-
 .audio-card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
@@ -73,23 +67,6 @@ defineProps({
   opacity: var(--accent-opacity);
   backdrop-filter: blur(2px);
   align-self: flex-start;
-}
-
-/* Theme-specific badge styles */
-.theme-retro .genre {
-  border: 2px outset var(--accent);
-  box-shadow: none;
-  backdrop-filter: none;
-  font-family: var(--font-body);
-}
-
-.theme-programmer .genre {
-  border: 1px solid var(--accent);
-  background: transparent;
-  color: var(--accent);
-  opacity: 1;
-  font-family: var(--font-body);
-  letter-spacing: 0.1em;
 }
 
 .description {
