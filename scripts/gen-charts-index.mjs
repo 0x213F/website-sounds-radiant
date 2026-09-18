@@ -184,7 +184,7 @@ for (const tune of tunes) {
 
 writeFileSync(
   join(CHARTS, 'index.html'),
-  page('Charts', 'Transcriptions and parts, as engraved PDFs.', { href: '/', text: 'Home' }, tuneRows)
+  page('Charts', 'Transcriptions and parts, as engraved PDFs.', { href: '../../', text: 'Home' }, tuneRows)
 )
 
 console.log(`wrote index pages for ${tunes.length} tune(s)`)
