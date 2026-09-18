@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --text-primary: #e4d5c1;
+    --text-secondary: #c4ae94;
+    --text-light: #9d8770;
+    --bg-primary: #1a1108;
+    --bg-secondary: #2f2419;
+    --accent: #a8845f;
+    --border: #3d2f22;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 4rem 1rem 6rem;
+  }
+  .wrap { max-width: 44rem; margin: 0 auto; }
+  .back {
+    display: inline-block; margin-bottom: 2rem; color: var(--text-light);
+    text-decoration: none; font-size: 0.85rem; letter-spacing: 0.04em;
+  }
+  .back:hover { color: var(--accent); }
+  h1 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: clamp(2rem, 6vw, 2.75rem); line-height: 1.15;
+  }
+  .sub { color: var(--text-light); margin-top: 0.5rem; font-size: 0.95rem; }
+  ul { list-style: none; margin-top: 2.5rem; }
+  li + li { margin-top: 0.75rem; }
+  .row {
+    display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    background: var(--bg-secondary); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1rem 1.25rem;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .row:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .name {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem;
+    color: var(--text-primary); text-decoration: none; flex: 1 1 12rem;
+  }
+  .name:hover { color: var(--accent); }
+  .meta { color: var(--text-light); font-size: 0.8rem; font-variant-numeric: tabular-nums; }
+  .history { color: var(--text-light); font-size: 0.8rem; text-decoration: none; }
+  .history:hover { color: var(--accent); text-decoration: underline; }
+  footer { margin-top: 3rem; color: var(--text-light); font-size: 0.8rem; }
+  footer a { color: var(--text-secondary); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="/">&larr; Home</a>
+<h1>Charts</h1>
+<p class="sub">Transcriptions and parts, as engraved PDFs.</p>
+<ul>
+  <li><div class="row">
+    <a class="name" href="killing-in-the-name/">Killing In The Name</a>
+    <span class="meta">5 parts</span>
+    <span class="meta">updated Sep 17, 2026</span>
+    <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/killing-in-the-name">history</a>
+  </div></li>
+</ul>
+<footer>
+Every chart is engraved in LilyPond and regenerated from one master file.
+Past versions live in <a href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts">the repository history</a>.
+</footer>
+</div>
+</body>
+</html>
