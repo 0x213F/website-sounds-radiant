@@ -55,6 +55,13 @@
   .history:hover { color: var(--accent); text-decoration: underline; }
   footer { margin-top: 3rem; color: var(--text-light); font-size: 0.8rem; }
   footer a { color: var(--text-secondary); }
+  h2 {
+    font-family: 'Playfair Display', serif; font-weight: 600;
+    font-size: 1.3rem; margin-top: 3rem;
+  }
+  h2 + p.sub { margin-top: 0.25rem; }
+  h2 ~ ul { margin-top: 1.25rem; }
+  .file { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.95rem; }
 </style>
 </head>
 <body>
@@ -66,14 +73,39 @@
   <li><div class="row">
     <a class="name" href="compared-to-what-bass.pdf">Bass</a>
     <span class="meta">310 KB</span>
-    <span class="meta" title="2026-09-30T17:07:03-07:00">updated Sep 30, 2026</span>
+    <span class="meta" title="2026-10-01T23:37:06-07:00">updated Oct 1, 2026</span>
     <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/compared-to-what/compared-to-what-bass.pdf">history</a>
   </div></li>
   <li><div class="row">
     <a class="name" href="compared-to-what-tenor.pdf">Tenor sax (B♭)</a>
     <span class="meta">207 KB</span>
-    <span class="meta" title="2026-09-30T17:07:03-07:00">updated Sep 30, 2026</span>
+    <span class="meta" title="2026-10-01T23:37:06-07:00">updated Oct 1, 2026</span>
     <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/compared-to-what/compared-to-what-tenor.pdf">history</a>
+  </div></li>
+</ul>
+<h2>LilyPond source</h2>
+<p class="sub">Both parts include the shared changes file; keep all three in one folder and compile with LilyPond 2.24.</p>
+<ul>
+  <li><div class="row">
+    <a class="name file" href="compared-to-what-changes.ily">compared-to-what-changes.ily</a>
+    <span class="meta">chord changes &middot; shared</span>
+    <span class="meta">4 KB</span>
+    <span class="meta" title="2026-10-01T23:37:06-07:00">updated Oct 1, 2026</span>
+    <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/compared-to-what/compared-to-what-changes.ily">history</a>
+  </div></li>
+  <li><div class="row">
+    <a class="name file" href="compared-to-what-bass.ly">compared-to-what-bass.ly</a>
+    <span class="meta">bass part</span>
+    <span class="meta">8 KB</span>
+    <span class="meta" title="2026-10-01T23:37:06-07:00">updated Oct 1, 2026</span>
+    <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/compared-to-what/compared-to-what-bass.ly">history</a>
+  </div></li>
+  <li><div class="row">
+    <a class="name file" href="compared-to-what-tenor.ly">compared-to-what-tenor.ly</a>
+    <span class="meta">tenor sax part</span>
+    <span class="meta">5 KB</span>
+    <span class="meta" title="2026-10-01T23:37:06-07:00">updated Oct 1, 2026</span>
+    <a class="history" href="https://github.com/0x213F/website-sounds-radiant/commits/main/public/assets/charts/compared-to-what/compared-to-what-tenor.ly">history</a>
   </div></li>
 </ul>
 <footer>
