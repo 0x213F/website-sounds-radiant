@@ -5,7 +5,7 @@
 
 \header {
   title = "Killing In the Name"
-  subtitle = "Sax (Bari, E-flat)"
+  subtitle = "Eb Bari Sax"
   tagline = ##f
 }
 
@@ -26,7 +26,7 @@ swing = \markup {
 }
 
 
-global = { \key c \major }
+global = { \key d \minor }
 
 %% Chord symbols. Derived from the transcribed bass line and cross-checked
 %% against published chord charts for the tune (D5/Eb5 intro, D7#9 riff,
@@ -73,12 +73,16 @@ chordPart = \chordmode {
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |  % 38
   %% Solos: same four-bar loop as C, open. Vamp, then D.S. back to A.
-  \repeat volta 2 {
+  % \repeat volta 2 {
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
-  }
+  d2:5 d8:5 f8:5 g8:5 c8:5 |
+  d2:5 d8:5 f8:5 g8:5 c8:5 |
+  d2:5 d8:5 f8:5 g8:5 c8:5 |
+  d2:5 d8:5 f8:5 g8:5 c8:5 |
+  % }
   %% Pre-chorus
   %% Chords follow the climbing horn line.
   d1:5 |
@@ -89,12 +93,12 @@ chordPart = \chordmode {
   c1:5 |
   d1:5 |
   %% Chorus: the solo-section bass line, four bars, repeated.
-  \repeat volta 2 {
+  % \repeat volta 2 {
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
-  }
+  % }
   %% Post-chorus: four more bars of the chorus.
   d2:5 d8:5 f8:5 g8:5 c8:5 |
   d2:5 d8:5 f8:5 g8:5 c8:5 |
@@ -154,12 +158,9 @@ voxPart = {
   c16 c16 c16 c16 r8 c16 c16 c16 c16 c8 r4 |  % 38
   }
   %% Solos: same four-bar loop as C, open. Vamp, then D.S. back to A.
-  \repeat volta 2 {
-  R1 |
-  R1 |
-  R1 |
-  R1 |
-  }
+  % \repeat volta 2 {
+    R1*8
+  % }
   %% Pre-chorus
   %% One syllable a bar, free - no rhythm intended.
   c1 |
@@ -207,10 +208,45 @@ voxLyrics = \lyricmode {
   \preChorusLine
 }
 
-%% The line the horns and guitar share, written at CONCERT pitch.
-%% Edit it here and both parts follow.
-leadLine = {
-  \global
+guitarLickOne = { 
+  \repeat volta 2 { 
+    d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
+    d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
+    d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
+    d,8. d,16 ~ d,8 d,8 cis8 d8 gis8 g8 |
+  }
+}
+saxLickOne = \relative c' { 
+  \repeat volta 2 { 
+    r2 cis8 d fis g | r2 cis,8 d fis g | r2 cis,8 d fis g | r2 cis,8 d gis16 ( a ) g8 |
+  }
+}
+
+guitarLickThree = \relative c { 
+  r8  c16 d  r d  b'8  
+  r8  c,16 d  r d  bes'8 | 
+  r8  c,16 d  r d  a'8  
+  r2 |
+
+  r8  c,16 d  r d  b'8  
+  r8  c,16 d  r d  bes'8 | 
+  r8  c,16 d  r d  a'8  
+  d,16 16 16 16  16 16 16 16 | 
+}
+
+guitarSolo = \relative c'' {
+  d8 d,, a'' d,,  g' d, f' d, | d' d, c' d, a''2 | 
+  d8 d,, a'' d,,  g' d, f' d, | d' d, c' d, d'4.  d,8 | 
+
+  \tuplet 6/4 { a''16 c a c a c } a8 d,, 
+  \tuplet 6/4 { a''16 c a c a c } a8 d,, |
+  \tuplet 6/4 { g'16 a g a g a } g8 d,  
+  \tuplet 6/4 { g'16 a g a g a } g8 d, |
+  d''4. d,,8 e''4. d,,8 | gis'1  | 
+
+}
+
+leadLineIntroOne = {
   \override Glissando.style = #'zigzag
   \mark \markup { \box \bold "Intro" } \tempo 4 = 112 d,1 |  % 1
   d,1 |
@@ -220,21 +256,38 @@ leadLine = {
   R1 |
   R1 |
   R1 |
-  \repeat volta 2 {
-  d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
-  d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
-  d,8. d,16 ~ d,8 d,8 cis8 d8 fis8 g8 |
-    d,8. d,16 ~ d,8 d,8 cis8 d8 gis8 g8 |
-  }
+}
+
+leadLineIntroTriplets = {
   \tuplet 3/2 { d,4 d,4 d,4 } \tuplet 3/2 { ees4 ees4 ees4 } |  % 17
   \tuplet 3/2 { d,4 d,4 d,4 } \tuplet 3/2 { ees4 ees4 ees4 } |
   \tuplet 3/2 { d,4 d,4 d,4 } \tuplet 3/2 { ees4 ees4 ees4 } |
   \time 2/4 \tuplet 3/2 { d,4 d,4 d,4 } |
   \tempo "Slower" R2 |  % 21
+}
+
+leadLineAPrime = {
   \mark \markup { \box \bold "A'" } \time 4/4 d,8 c16 d16 \deadNote c16 \deadNote c16 ees16 f16 d8 d,8 f,16 d,16 ees,8 |
   d,8 c16 d16 \deadNote c16 \deadNote c16 ees16 f16 d8 d,8 f,16 d,16 ees,8 |
   d,8 c16 d16 \deadNote c16 \deadNote c16 ees16 f16 d8 d,8 f,16 d,16 ees,8 |
   d,8 c16 d16 \deadNote c16 \deadNote c16 ees16 f16 d8 d,8 f,16 d,16 ees,8 |  % 25
+}
+saxAPrime = \relative c' {
+  \mark \markup { \box \bold "A'" } \time 4/4 
+  r8 c16 d16  r8 ees16 f16  d8 d,8 f ees |
+  r8 c'16 d16  r8 ees16 f16  d8 d,8 f ees |
+  r8 c'16 d16  r8 ees16 f16  d8 d,8 f ees |
+  r8 c'16 d16  r8 ees16 f16  d8 d,8 f ees |
+}
+
+leadLineIntro = {
+}
+
+%% The line the horns and guitar share, written at CONCERT pitch.
+saxIntro = {
+}
+
+leadLineA = {
   \repeat volta 2 {
     \mark \markup { \box \bold "A" } R1 |
   R1 |
@@ -247,6 +300,23 @@ leadLine = {
   d,8 c16 d16 \deadNote c16 \deadNote c16 a8 d,8 d,16 c,16 f,16 c,16 ees,8 |
   d,8 c16 d16 \deadNote c16 \deadNote c16 b8 d,8 c16 d16 \deadNote c16 \deadNote c16 bes8 |
   d,8 c16 d16 \deadNote c16 \deadNote c16 a8 d,16 d,16 d,16 d,16 d,16 d,16 d,16 d,16 |  % 37
+}
+saxA = {
+  \repeat volta 2 {
+    \mark \markup { \box \bold "A" } R1 |
+  R1 |
+  R1 |
+  %% Last bar of A (printed 25): sax runs up to the octave; guitar stays out.
+    \tag #'sax { r4 r8 a,16 bes,16 b,16 c16 des16 d16 f16 fis16 a8 | }
+    \tag #'guitar { R1 | }  % 29
+  }
+  \guitarLickThree
+}
+
+
+%% The line the horns and guitar share, written at CONCERT pitch.
+%% Edit it here and both parts follow.
+leadLineB = {
   \repeat volta 3 {
     \mark \markup { \box \bold "B" } \tempo "Slightly Faster, Swung 16th" d2^\markup { \italic "Play 3rd time only" }\glissando d,2 |
   d,2\glissando d2 |
@@ -256,13 +326,19 @@ leadLine = {
     { d,2\glissando d2 | }
     { d16 d16 ~ d8 d4 \tuplet 3/2 { d16 d16 d16 } \tuplet 3/2 { d16 d16 d16 } \tuplet 3/2 { d16 d16 d16 } \tuplet 3/2 { d16 d16 d16 } | }
   }
+}
+
+leadLineC = {
   \mark \markup { \box \bold "C" }
   \repeat volta 2 {
-  d16 d16 ~ d8 d8. d16 ~ d16 d16 f,8 g,8 c8 |
-  d16 d16 ~ d8 d8. d16 ~ d16 d16 f,8 g,8 c8 |
-  d16 d16 ~ d8 d8. d16 ~ d16 d16 f,8 g,8 c8 |
-  d16 d16 ~ d8 d8. d16 ~ d16 d16 f,8 g,8 c8 |
+  d16 d8. d8. d16 ~ d16 d16 f,8 g,8 c8 |
+  d16 d8. d8. d16 ~ d16 d16 f,8 g,8 c8 |
+  d16 d8. d8. d16 ~ d16 d16 f,8 g,8 c8 |
+  d16 d8. d8. d16 ~ d16 d16 f,8 g,8 c8 |
   }
+}
+
+leadLineSolos = {
   %% Solos: same four-bar loop as C, open. Vamp, then D.S. back to A.
   \mark \markup { \box \bold "Solos" }
   \repeat volta 2 {
@@ -271,9 +347,23 @@ leadLine = {
     s1 |
     s1 |
   }
+}
+saxSolos = {
+  %% Solos: same four-bar loop as C, open. Vamp, then D.S. back to A.
+  \mark \markup { \box \bold "Solos Sax" }
+  % \repeat volta 2 {
+    \guitarSolo
+  % }
+}
+
+
+%% The line the horns and guitar share, written at CONCERT pitch.
+%% Edit it here and both parts follow.
+leadLinePreChorus = {
   %% Pre-chorus
   \mark \markup { \box \bold "D'" }
   \tempo "Slightly Slower"
+  \bar "||"
   d,1 |
   e,1 |
   f,1 |
@@ -281,15 +371,21 @@ leadLine = {
   bes,1 |
   c1 |
   d1 |
+}
+
+leadLineChorus = {
   %% Chorus: the solo-section bass line, four bars, repeated.
   \mark \markup { \box \bold "D" }
   \tempo "a tempo"
-  \repeat volta 2 {
+  % \repeat volta 2 {
   R1 |
   R1 |
   R1 |
   R1 |
-  }
+  % }
+}
+
+leadLinePostChorus = {
   %% Post-chorus: four more bars of the chorus.
   \mark \markup { \box \bold "Outro" }
   R1 |
@@ -302,13 +398,61 @@ leadLine = {
   \bar "|."
 }
 
+
+
+%% The line the horns and guitar share, written at CONCERT pitch.
+%% Edit it here and both parts follow.
+leadLineOriginal = {
+  \global
+  \leadLineIntroOne
+  \guitarLickOne
+  \leadLineIntroTriplets
+  \leadLineAPrime
+  \leadLineA
+  \leadLineB
+  \leadLineC
+  \leadLineSolos
+  \leadLinePreChorus
+  \leadLineChorus
+  \leadLinePostChorus
+}
+leadLineBari = {
+  \global
+  \leadLineIntroOne
+  \saxLickOne
+  \leadLineIntroTriplets
+  \transpose c c, \saxAPrime
+  \saxA
+  \leadLineB
+  \leadLineC
+  \saxSolos
+  \leadLinePreChorus
+  \leadLineChorus
+  \leadLinePostChorus
+}
+leadLineTenor = {
+  \global
+  \transpose c, c \leadLineIntroOne
+  \saxLickOne
+  \transpose c, c \leadLineIntroTriplets
+  \saxAPrime
+  \saxA
+  \transpose c, c \leadLineB
+  \transpose c, c \leadLineC
+  \saxSolos
+  \transpose c, c \leadLinePreChorus
+  \transpose c, c \leadLineChorus
+  \transpose c, c \leadLinePostChorus
+}
+
 %% Bari sax in Eb: written a major 6th + octave above concert.
 %% \transpose handles the pitches AND the key signature (concert C -> written A).
-saxPart = \transpose ees, c' { \clef treble \keepWithTag #'sax \leadLine }
+saxPart =  { \clef treble \keepWithTag #'sax \leadLineBari }
+
 
 %% Guitar reads the same line up an octave so it sits on the staff instead
 %% of hanging off the bottom; treble clef, sounding 8vb as guitar always does.
-guitarPart = \transpose c c' { \clef "treble_8" \keepWithTag #'guitar \leadLine }
+guitarPart = \transpose c c' { \clef "treble_8" \keepWithTag #'guitar \leadLineOriginal }
 
 bassPart = {
   \clef bass
@@ -519,8 +663,8 @@ drumsDown = \drummode {
 \score {
   <<
   \new ChordNames { \transpose ees, c' \chordPart }
-  \new Staff = "main" \with { instrumentName = "Sax" } <<
-    \new Voice { \saxPart }
+  \new Staff = "main" \with { instrumentName = "Bb Sax" } <<
+    \new Voice { \transpose ees, c' \saxPart }
     \new NullVoice = "vox" { \voxPart }
   >>
   \new Lyrics \with { alignAboveContext = "main" }
