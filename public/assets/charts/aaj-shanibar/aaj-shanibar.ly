@@ -16,18 +16,21 @@
 %%                    from A rings under the first two bars ("Only on
 %%                    entering", with a swell). A rhythm
 %%                    line between the horns marks the "and" of 2.
+%%                    C has one too: the "and" of 2 for six bars, then
+%%                    a whole note tied over two.
 %%   C   bars 17-25   Vamp, 8 bars - chord symbols over rests, no
-%%                    slashes. Bar 17 has a parenthesised held D in
-%%                    BOTH horns, "When applicable".
+%%                    slashes. Bars 17-18 have a parenthesised held D
+%%                    in BOTH horns, "When applicable" - two tied
+%%                    whole notes with a swell, same as B's 9-10.
 %%                    Played twice: 7 bars + 1st ending (24)
 %%                    and 2nd ending (25), which carries the sax's
 %%                    lead-in into D on beats 3-4.
 %%   D   bars 26-37   The head, traded: sax 26-29, trumpet 29-33, then
-%%                    both in harmony (33-34) and in unison (35-37).
+%%                    both in harmony (33-34) and a run in 5ths (35-37).
 %%
 %% PLAYED ORDER is not page order:
-%%   A B A A C B D D, solos over C, D out.
-%% The form line under the title spells it out in boxed letters. Bar 37 ends on the Bb and the
+%%   A B A A - breakdown over C - D - solos over C.
+%% The form line under the title spells it out in boxed letters. Bar 37 ends on the B and the
 %% TRUMPET's lead-in (D C D C D) with a hanging tie - it carries into
 %% the parenthesised held D at the top of C (both horns have it there,
 %% "When applicable") when the form goes back to C for solos.
@@ -38,7 +41,7 @@
 %% CHORDS - one eight-bar cycle carries A, B and C:
 %%   Cm7  Cm7  D7  D7  |  Cm7  Cm7  Em7  Gmaj7
 %% D stretches the back half: Em7 for two bars, Gmaj7 for a bar and a
-%% half, then N.C. for the unison line and the Bb.
+%% half, then N.C. for the closing run and the B.
 %%
 %% D - WHO PLAYS WHAT. The export has both horn lines on the same patch
 %% ("Deluxe Classic"), in two regions. The region that opens D and takes
@@ -46,7 +49,8 @@
 %% answers at bar 29 and takes the top line is read as the trumpet.
 %%
 %% D's harmony bars: the sax plays the trumpet's F#/F figure a 4th down
-%% (C#/C), and in bar 34 lands on D under the trumpet's F#. C# is the 13
+%% (C#/C) in bar 33; from beat 2 of bar 34 it doubles the trumpet's
+%% F# figure an octave down (2026-10-08 export). C# is the 13
 %% of Em7 and the #11 of Gmaj7 - a Lydian colour, deliberate in the
 %% export.
 %%
@@ -73,11 +77,12 @@
   tagline = ##f
 }
 
-#(set-global-staff-size 16)
+#(set-global-staff-size 15)
 \paper {
   ragged-last-bottom = ##t
   paper-height = 9.4\in
-  top-margin = 0.4\in
+  top-margin = 0.25\in
+  bottom-margin = 0.3\in
 }
 
 global = {
@@ -102,7 +107,7 @@ chordPart = \chordmode {
   c1:m7  c:m7  d:7  d:7                %% D   26-29
   c1:m7  c:m7  e:m7  e:m7              %% D   30-33
   g1:maj7  g2:maj7 r2  r1  r1          %% D   34-37 - N.C. from the
-                                       %%     unison line to the end
+                                       %%     closing run to the end
 }
 
 %% ---- one pair of parentheses across two tied notes ----
@@ -126,6 +131,10 @@ figDC    = { d''8 c''16 d''8 c''16 d''8~ }
 %% Bar 37 only: the lead-in out of D, whose destination is not written
 %% yet - \laissezVibrer draws the hanging tie without a target note.
 figDClv  = { d''8 c''16 d''8 c''16 d''8\laissezVibrer }
+%% Bar 37, sax: harmony under the trumpet's figDClv, same rhythm - G F G F G,
+%% a 5th below D C D C D (concert, as played on piano by the user).
+figHarmLv = { g'8 f'16 g'8 f'16 g'8\laissezVibrer }  %% lands G - the lower
+                                                      %%   note held at C's top
 
 %% tied-in D, staccato B, quarter rest - the B is a light release off
 %% the held D. Every use: A's bars 3, 4, 7, 8 and D's 27 and 31.
@@ -141,9 +150,13 @@ figCs    = { cis''8 c''16 cis''8 c''16 cis''8~ }   %% bar 33, sax - figFs
 lift     = { b'4 g''4-. }              %% bars 28, 32: tied-in B, then
                                        %%   the high G on 2, staccato
 
-%% Bars 35-36, the unison line - both horns, same octave.
-unisonA  = { g'16 g' g' d'' d'' d'' g'' g'' }       %% beats 3-4 of bar 35
-unisonB  = { g''16 d'' d'' d'' a' a' a' g' g'8. d'8. b8 }   %% bar 36
+%% Bars 35-36, the closing run. Was in unison; from the 2026-10-08
+%% export the sax plays it a 5th below the trumpet, converging on the
+%% last three notes (trumpet G D C, sax C D C), into the B in bar 37.
+tptRunA  = { g'16 g' g' d'' d'' d'' g'' g'' }       %% beats 3-4 of bar 35
+tptRunB  = { g''16 d'' d'' d'' a' a' a' g' g'8. d'8. c'8 }  %% bar 36
+saxRunA  = { c'16 c' c' g' g' g' c'' c'' }          %% a 5th below
+saxRunB  = { c''16 g' g' g' d' d' d' c' c'8. d'8. c'8 }
 
 %% B: the trumpet lick, A - G - F#, entering on the "and" of 4
 lick     = { r2. r8 a'8~ | a'4. g'2 fis'8~ }
@@ -172,6 +185,7 @@ sax = {
     \closeParen d''4\! r4 \figDC |   %% 2
     \answer \figDC |              %% 3
     \answer \figDC |              %% 4
+    \break                        %% A in two lines of four
     \after 2 \< d''1~\> |         %% 5 - held D: decrescendo to beat 3,
                                   %%   then crescendo
     d''4\! r4 \figDC |              %% 6 - quarter, quarter rest
@@ -193,9 +207,14 @@ sax = {
   \mark \markup { \bold \box "C" }
   \textMark \markup { \italic "Vamp" }
   \repeat volta 2 {
-    %% 17 - the same optional held D as A's bar 1
-    \parenthesize d''1^\markup { \italic "When applicable" } |
-    R1*6 |                        %% 18-23 - rests, no slashes
+    %% 17-18 - optional held note, the same shape as B's bars 9-10: two
+    %%   tied whole notes in one set of parentheses, crescendo through
+    %%   17, decrescendo through 18. BOTH landings are shown, stacked:
+    %%   D (coming from A's figDC) and G (coming from D's bar 37,
+    %%   figHarmLv - a 5th under the trumpet's held D).
+    \openParen <g' d''>1~\<^\markup { \italic "When applicable" } |
+    \closeParen \after 1 \! <g' d''>1\> |
+    R1*5 |                        %% 19-23 - rests, no slashes
   }
   \alternative {
     { R1 }                        %% 24 - 1st ending, back to 17
@@ -208,21 +227,28 @@ sax = {
   \answer \figBeb |               %% 27
   \lift \figBsh |                 %% 28
   b'4 r4 r2 |                     %% 29 - hands off to the trumpet
+  \break                          %% D in three lines of four bars
   R1*3 |                          %% 30-32
   r2 \figCs |                     %% 33 - harmony, under the trumpet
-  cis''8 a'8 r8 cis''16 cis''16
-    cis''8 cis''8 cis''8 c''16 d''16~ |   %% 34
-  d''4 r4 \unisonA |              %% 35 - unison from beat 3
-  \unisonB |                      %% 36
-  bes8-. r8 r2. |                 %% 37 - Bb (the lead-in is the trumpet's)
+  \break
+  cis''8 a'8 r8 fis'16 fis'16
+    fis'8 fis'8 fis'8 f'16 fis'16~ |      %% 34 - from beat 2 the sax
+                                          %%   doubles the trumpet's F#
+                                          %%   figure an octave down
+  fis'4 r4 \saxRunA |             %% 35 - the run, a 5th below
+  \saxRunB |                      %% 36
+  b4-. r4 \figHarmLv |            %% 37 - B, then the harmony lead-in
   \bar "|."
 }
 
-%% ---- Rhythm line (B only) ----
+%% ---- Rhythm line (B and C) ----
 %% Band hits for B: a hit on the "and" of 2 in the first three bars of
 %% each four-bar half, nothing in the fourth (bars 12 and 16) -
-%% the same spot the trumpet moves from A to G. The staff is removed
-%% from every system where it is empty, so it only prints in B.
+%% the same spot the trumpet moves from A to G.
+%% C: the same hit in its first six bars (17-22), then a whole note on
+%% bar 23 tied through the ending bar (24 or 25).
+%% The staff is removed from every system where it is empty, so it only
+%% prints in B and C.
 hit = { r4 r8 c8 r2 }
 
 rhythmLine = {
@@ -230,8 +256,14 @@ rhythmLine = {
   \repeat volta 2 { R1*8 | }      %% A - mirrors the repeat
   \hit | \hit | \hit | R1 |       %% B 9-12 - nothing in the 4th bar
   \hit | \hit | \hit | R1 |       %% B 13-16 - same
-  \repeat volta 2 { R1*7 | }      %% C - mirrors the repeat
-  \alternative { { R1 } { R1 } }
+  \repeat volta 2 {               %% C - mirrors the repeat
+    \repeat unfold 6 { \hit | }    %% 17-22
+    c1~ |                         %% 23 - held into the ending
+  }
+  \alternative {
+    { c1 }                        %% 24
+    { c1\repeatTie }              %% 25 - the tie arrives over the
+  }                               %%   1st ending, so it's a repeat tie
   R1*12 |                         %% D
 }
 
@@ -248,10 +280,12 @@ trumpet = {
   \lickHold |                     %% 15-16 - same as 11-12
 
   \repeat volta 2 {
-    %% 17 - same optional held D as the sax: it catches the trumpet's
-    %%   lead-in from bar 37 when the form goes D -> C for solos
-    \parenthesize d''1^\markup { \italic "When applicable" } |
-    R1*6 |                        %% C 18-23
+    %% 17-18 - same optional held D as the sax (B's bar 9-10 shape): it
+    %%   catches the trumpet's lead-in from bar 37 when the form goes
+    %%   D -> C for solos
+    \openParen d''1~\<^\markup { \italic "When applicable" } |
+    \closeParen \after 1 \! d''1\> |
+    R1*5 |                        %% C 19-23
   }
   \alternative { { R1 } { R1 } }  %% 24, 25
 
@@ -263,9 +297,9 @@ trumpet = {
   b'4 r4 \figFs |                 %% 33 - harmony, on top
   fis''8 d''8 r8 fis''16 fis''16
     fis''8 fis''8 fis''8 f''16 fis''16~ |  %% 34
-  fis''4 r4 \unisonA |            %% 35
-  \unisonB |                      %% 36
-  bes8-. r8 r4 \figDClv |         %% 37 - Bb, then the lead-in out to C
+  fis''4 r4 \tptRunA |            %% 35
+  \tptRunB |                      %% 36 - ends on C now (was B)
+  b4-. r4 \figDClv |         %% 37 - B, then the lead-in out to C
   \bar "|."
 }
 
@@ -274,8 +308,8 @@ trumpet = {
   (interpret-markup layout props (markup #:box (#:bold s))))
 \markup { \fill-line { \line {
   \bold "Form:"
-  \sec A \sec B \sec A \sec A \sec C \sec B \sec D \sec D
-  "– solos over" \sec C "–" \sec D "out"
+  \sec A \sec B \sec A \sec A
+  "– breakdown over" \sec C "–" \sec D "– solos over" \sec C
 } } }
 
 \score {
