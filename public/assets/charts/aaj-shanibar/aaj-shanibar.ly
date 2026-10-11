@@ -38,8 +38,18 @@
 %% PITCH: written at concert pitch, at the export's octave - no
 %% \transpose in the \score block (the old chart had one; this does not).
 %%
-%% CHORDS - one eight-bar cycle carries A, B and C:
+%% CHORDS - one eight-bar cycle carries A and B:
 %%   Cm7  Cm7  D7  D7  |  Cm7  Cm7  Em7  Gmaj7
+%% C (the vamp) has its own (2026-10-09), two bars each, from the bass
+%% line and the Moises chart of the live "Ibiza" (m. 91 on):
+%%   C7  C7  Bm7  Bm7  |  Fmaj7  Fmaj7  Em7  (Em7 in both endings)
+%% The horns' held D in 17-18 is the 9 of C7; the sax's lead-in in the
+%% 2nd ending (D C D C D) sits over Em7.
+%%
+%% BASS STAFF (added 2026-10-09) under the trumpet: the riff in A, B
+%% and D, C's own root-5th line. Full part: aaj-shanibar-bass.ly.
+%% C: the groove line is written, marked "or roots, or
+%% tacet, to taste" - the three options were stacked staves in .bak92.
 %% D stretches the back half: Em7 for two bars, Gmaj7 for a bar and a
 %% half, then N.C. for the closing run and the B.
 %%
@@ -57,7 +67,10 @@
 %% NEW RHYTHMS IN D vs the old head:
 %%   - the G on beat 2 of bars 28 and 32 is a staccato quarter (the
 %%     export plays it as a 16th; written as the user specified)
-%%   - figBsh: the D on the "a" of 3 is cut to a 16th + 16th rest
+%%   - figBsh: D D B on 3, the "a" of 3 and the "and" of 4 (3+3+2, as in
+%%     bar 36), grace E into the 2nd D, passing C. Note lengths written
+%%     legato - the export's gaps are performance, not rests.
+%%   - bars 26-27 and 30-31: D on 1, staccato C on the "and" (2026-10-11)
 %%   - bar 34: the F# figure becomes three straight eighths on 2-3-and
 %%
 %% Transcription calls (the MIDI is played in, not quantised):
@@ -97,13 +110,20 @@ cycle = \chordmode {
   c1:m7  c:m7  e:m7  g:maj7
 }
 
+%% C (the vamp): C - B - F - E, two bars each - the bass line from the
+%% 2026-10-09 export, qualities per the Moises chart of the live "Ibiza"
+%% (m. 91 on). Bar 23's Em7 carries through both endings.
+cChords = \chordmode {
+  \repeat volta 2 {
+    c1:7  c:7  b:m7  b:m7  f:maj7  f:maj7  e:m7
+  }
+  \alternative { { e1:m7 } { e1:m7 } }
+}
+
 chordPart = \chordmode {
   \repeat volta 2 { \cycle }           %% A   1-8 - mirrors the staff repeat
   \cycle                               %% B   9-16
-  \repeat volta 2 {                    %% C   17-23 - mirrors the staff
-    c1:m7  c:m7  d:7  d:7  c:m7  c:m7  e:m7
-  }
-  \alternative { { g1:maj7 } { g1:maj7 } }  %% C   24, 25 - the endings
+  \cChords                             %% C   17-25 - its own changes
   c1:m7  c:m7  d:7  d:7                %% D   26-29
   c1:m7  c:m7  e:m7  e:m7              %% D   30-33
   g1:maj7  g2:maj7 r2  r1  r1          %% D   34-37 - N.C. from the
@@ -139,11 +159,16 @@ figHarmLv = { g'8 f'16 g'8 f'16 g'8\laissezVibrer }  %% lands G - the lower
 %% tied-in D, staccato B, quarter rest - the B is a light release off
 %% the held D. Every use: A's bars 3, 4, 7, 8 and D's 27 and 31.
 answer   = { d''8 b'8-. r4 }
+answerD  = { d''8 c''8-. r4 }   %% D's answer: C, not B, on the "and" of 1
+                                %%   (2026-10-11 export) - bars 26-27, 30-31
 
 %% D section figures
 figBeb   = { d''8 ees''16 d''8 c''16 b'8~ }        %% bars 27 (sax) and
                                                    %%   31 (tpt) - lands B
-figBsh   = { d''8 e''16 d''16 r16 c''16 b'8~ }     %% bars 28, 32 - short D
+figBsh   = { d''8. \acciaccatura e''16 d''8 c''16 b'8~ }  %% bars 28, 32 - 3+3+2
+                                %%   like bar 36's ending (D, D, B), with a
+                                %%   grace E into the 2nd D and C as a passing
+                                %%   16th. Rests from the export dropped.
 figFs    = { fis''8 f''16 fis''8 f''16 fis''8~ }   %% bar 33, trumpet
 figCs    = { cis''8 c''16 cis''8 c''16 cis''8~ }   %% bar 33, sax - figFs
                                                    %%   a 4th down
@@ -201,8 +226,11 @@ sax = {
   %% one set of parentheses around both bars - optional, like A's bar 1
   \openParen d''1~\<^\markup { \italic "Only on entering" } |
   \closeParen \after 1 \! d''1\> |                  %% 9-10 - A's D rings under the lick
-  R1*6 |                          %% 11-16
-  \break
+  R1*2 |                          %% 11-12
+  \break                          %% B in two lines of four bars
+  R1*4 |                          %% 13-16
+  \pageBreak                      %% C starts page 2 - the stacked form
+                                  %%   list left no room for it on page 1
 
   \mark \markup { \bold \box "C" }
   \textMark \markup { \italic "Vamp" }
@@ -217,14 +245,17 @@ sax = {
     R1*5 |                        %% 19-23 - rests, no slashes
   }
   \alternative {
-    { R1 }                        %% 24 - 1st ending, back to 17
-    { r2 \figDC }                 %% 25 - 2nd ending, lead-in to D
+    { \once \override Score.VoltaBracket.stencil = ##f   %% no "1." bracket
+      R1 }                        %% 24 - 1st ending, back to 17
+    { \once \override Score.VoltaBracket.text =   %% 25 - 2nd ending, lead-in
+        \markup { \normal-text \bold { "Pickups into" \box "D" } }        %%   to D, labelled as such
+      r2 \figDC }
   }
   \break
 
   \mark \markup { \bold \box "D" }
-  d''4. r8 \figDC |               %% 26
-  \answer \figBeb |               %% 27
+  \answerD \figDC |              %% 26 - same as 27
+  \answerD \figBeb |              %% 27
   \lift \figBsh |                 %% 28
   b'4 r4 r2 |                     %% 29 - hands off to the trumpet
   \break                          %% D in three lines of four bars
@@ -267,6 +298,64 @@ rhythmLine = {
   R1*12 |                         %% D
 }
 
+%% ---- Bass ----
+%% A, B, D: the 4-bar riff from the export, looped. It was written for
+%% the Cm7 / D7 half of the cycle; under Em7 and Gmaj7 it clashes (see
+%% aaj-shanibar-bass.ly).
+rOne   = { c8   g8   c'8  r8    d'8  ees'8 g8   c8   }
+rTwo   = { r4        f'4         ees'8 d'8   c'8  b8~ }
+rThree = { b8   d'8  g8   r8    fis8 g8    a8   d8~  }
+rFour  = { d8   r8   c8   b,8   c8   d8    c4        }
+riff   = { \rOne | \rTwo | \rThree | \rFour | }
+
+%% C: root - 5th - low root, two bars per chord. Bars 21-23 (F, E) are
+%% the 2026-10-09 export; 17-20 (C, B) are the same shape, written to
+%% match. The 5th lands on the "and" of 2 with the band hit.
+cLine = {
+  c'4. g4.   c4~   | c1   |       %% 17-18 C7
+  b4.  fis4. b,4~  | b,1  |       %% 19-20 Bm7
+  f'4. c'4.  f4~   | f1   |       %% 21-22 Fmaj7
+  e'4. b4.   e4~   |              %% 23    Em7 - held into the ending
+}
+
+bassPart = {
+  \global
+  \clef bass
+  \override Staff.Clef.break-visibility = #all-invisible
+  \repeat volta 2 { \riff \riff }      %% A 1-8
+  \riff \riff                          %% B 9-16
+  \repeat volta 2 { <>^\markup { \italic "Groove – or roots, or tacet, to taste" } \cLine }  %% C 17-23
+  \alternative { { e1 } { e1\repeatTie } }   %% 24, 25
+  \riff \riff                          %% D 26-33
+  \rOne |                              %% 34
+  r4 c'8 r8 r2 |                       %% 35 - one C, then out (N.C.)
+  R1 |                                 %% 36 - the horns' run
+  r4 c8 b,8 c8 d8 c4 |                 %% 37 - the riff's tail
+  \bar "|."
+}
+
+%% What the score shows: the riff once (bars 1-4), unmarked - it loops
+%% through A and B, then C and D. Bars 5-16 are skips, so the bass staff
+%% drops out of those systems. The MIDI still plays bassPart in full.
+bassShow = {
+  \global
+  \clef bass
+  \override Staff.Clef.break-visibility = #all-invisible
+  \repeat volta 2 {                    %% A
+    \riff
+    s1*4                               %% 5-8
+  }
+  s1*8                                 %% B
+  \repeat volta 2 { <>^\markup { \italic "Groove – or roots, or tacet, to taste" } \cLine }
+  \alternative { { e1 } { e1\repeatTie } }   %% 24, 25
+  \riff \riff                          %% D 26-33
+  \rOne |                              %% 34
+  r4 c'8 r8 r2 |                       %% 35
+  R1 |                                 %% 36
+  r4 c8 b,8 c8 d8 c4 |                 %% 37
+  \bar "|."
+}
+
 %% ---- Trumpet ----
 trumpet = {
   \global
@@ -291,8 +380,8 @@ trumpet = {
 
   R1*3 |                          %% D 26-28
   r2 \figDC |                     %% 29 - takes over from the sax
-  d''4. r8 \figDC |               %% 30
-  \answer \figBeb |               %% 31 - same as the sax's bar 27
+  \answerD \figDC |              %% 30 - same as the sax's bar 26
+  \answerD \figBeb |              %% 31 - same as the sax's bar 27
   \lift \figBsh |                 %% 32
   b'4 r4 \figFs |                 %% 33 - harmony, on top
   fis''8 d''8 r8 fis''16 fis''16
@@ -306,10 +395,14 @@ trumpet = {
 %% Form line: boxed letters to match the rehearsal marks.
 #(define-markup-command (sec layout props s) (markup?)
   (interpret-markup layout props (markup #:box (#:bold s))))
-\markup { \fill-line { \line {
-  \bold "Form:"
-  \sec A \sec B \sec A \sec A
-  "– breakdown over" \sec C "–" \sec D "– solos over" \sec C
+\markup { \fill-line { \column {
+  \line { \bold "Form:" }
+  \line { \sec A \sec B \sec A \sec A "Head 1" }
+  \line { \sec C "Breakdown" }
+  \line { \sec D "Head 2" }
+  \line { \sec C "Solos" }
+  \line { \sec A \sec A "Between solos" }
+  \line { \sec D "Out" }
 } } }
 
 \score {
@@ -319,7 +412,7 @@ trumpet = {
       \chordPart
     }
     \new StaffGroup <<
-      \new Staff \with { instrumentName = "Sax" } {
+      \new Staff \with { instrumentName = "Sax" shortInstrumentName = "Sax" } {
         \new Voice \with { \consists "Pitch_squash_engraver" } { \sax }
       }
       \new RhythmicStaff \with {
@@ -328,13 +421,17 @@ trumpet = {
         \RemoveAllEmptyStaves
         \override NoteHead.style = #'cross
       } { \rhythmLine }
-      \new Staff \with { instrumentName = "Trumpet" } {
+      \new Staff \with { instrumentName = "Tmpt" shortInstrumentName = "Tmpt" } {
         \new Voice \with { \consists "Pitch_squash_engraver" } { \trumpet }
       }
+      \new Staff \with {
+        instrumentName = "Bass" shortInstrumentName = "Bass"
+        \RemoveAllEmptyStaves
+      } { \bassShow }
     >>
   >>
   \layout {
-    indent = 16\mm
+    indent = 0\mm   %% first line lines up with the rest
   }
 }
 
@@ -343,6 +440,7 @@ trumpet = {
     \new ChordNames { \chordPart }
     \new Staff \with { midiInstrument = "alto sax" } { \sax }
     \new Staff \with { midiInstrument = "trumpet" } { \trumpet }
+    \new Staff \with { midiInstrument = "electric bass (finger)" } { \bassPart }
   >>
   \midi { }
 }
